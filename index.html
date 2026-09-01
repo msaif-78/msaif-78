@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#075e54" />
+    <title>WorkerConnect | Operations prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="WorkerConnect home"><span class="brand-mark">W</span><span>Worker<span>Connect</span></span></a>
+        <div class="environment"><span></span> Sandbox workspace</div>
+        <div class="top-actions"><button class="icon-button" aria-label="Notifications">⌁<i></i></button><button class="avatar" aria-label="Open profile">AS</button></div>
+      </header>
+
+      <section class="role-switcher" aria-label="Choose an app interface">
+        <div><p class="eyebrow">Interactive product prototype</p><h1>One network. Three focused experiences.</h1></div>
+        <div class="role-tabs" role="tablist">
+          <button class="role-tab active" data-role="customer" role="tab" aria-selected="true"><b>⌂</b> Customer app</button>
+          <button class="role-tab" data-role="worker" role="tab" aria-selected="false"><b>♟</b> Worker app</button>
+          <button class="role-tab" data-role="admin" role="tab" aria-selected="false"><b>▦</b> Admin console</button>
+        </div>
+      </section>
+
+      <section id="customer" class="view active" aria-label="Customer app">
+        <div class="mobile-frame customer-frame">
+          <div class="mobile-status"><span>9:41</span><span>● ● ◠</span></div>
+          <div class="customer-hero">
+            <div class="location-pill">⌖ &nbsp; Indiranagar, Bengaluru <span>⌄</span></div>
+            <button class="bell" aria-label="Notifications">♧<i></i></button>
+            <p class="welcome">Good morning, Ananya</p>
+            <h2>What needs<br />doing today?</h2>
+            <label class="work-search"><span>⌕</span><input id="workSearch" placeholder="Describe the work you need" /><button id="searchWork">↗</button></label>
+          </div>
+          <div class="customer-content">
+            <div class="section-heading"><h3>Popular services</h3><button>View all</button></div>
+            <div class="category-grid" id="categories"></div>
+            <div class="section-heading recent-heading"><h3>Recent activity</h3><button>View history</button></div>
+            <article class="recent-card"><div class="service-icon blue">↔</div><div><b>Move furniture</b><p>14 Aug · Completed</p></div><strong>₹850</strong></article>
+          </div>
+          <nav class="bottom-nav"><button class="selected">⌂<small>Home</small></button><button>▣<small>My jobs</small></button><button>♡<small>Saved</small></button><button>◉<small>Profile</small></button></nav>
+        </div>
+        <div class="prototype-note"><span class="note-icon">✦</span><div><b>Customer flow is ready to test</b><p>Select a category, tune the job details and dispatch a secure test request.</p></div><button id="beginJob">Create a job <span>→</span></button></div>
+      </section>
+
+      <section id="worker" class="view" aria-label="Worker app">
+        <div class="mobile-frame worker-frame">
+          <div class="mobile-status"><span>9:41</span><span>● ● ◠</span></div>
+          <div class="worker-header"><div><p>Good morning</p><h2>Ravi Kumar <span class="verified">✓</span></h2></div><div class="online-control"><span>Online</span><button id="availability" class="toggle on" aria-label="Toggle availability"><i></i></button></div></div>
+          <div class="earnings"><div><p>Today’s earnings</p><h2>₹1,240</h2><small>+18% from last Tuesday</small></div><span>↗</span></div>
+          <div class="worker-content"><div class="section-heading"><h3>New request</h3><p class="live"><i></i> LIVE</p></div>
+            <article class="job-request" id="jobRequest"><div class="job-top"><span class="service-icon coral">↔</span><span class="distance">2.4 km away</span></div><h3>Furniture moving help</h3><p>Help move a sofa and 4 boxes from a first-floor flat.</p><div class="job-meta"><span>◷ 2–3 hrs</span><span>♟ 2 workers</span><span>⌖ Indiranagar</span></div><div class="offer-row"><div><small>Your earning</small><b>₹720 <em>per worker</em></b></div><span class="request-timer" id="timer">00:30</span></div><div class="request-actions"><button class="ghost" id="rejectJob">Reject</button><button class="primary" id="acceptJob">Accept request</button></div></article>
+            <div class="section-heading"><h3>Quick actions</h3></div><div class="quick-actions"><button>▤<span>My jobs</span></button><button>₹<span>Earnings</span></button><button>◉<span>Safety</span></button></div>
+          </div>
+          <nav class="bottom-nav"><button class="selected">⌂<small>Home</small></button><button>▣<small>Jobs</small></button><button>₹<small>Earnings</small></button><button>◉<small>Profile</small></button></nav>
+        </div>
+        <div class="prototype-note worker-note"><span class="note-icon">✓</span><div><b>Verified worker experience</b><p>Requests hide customer details until server-side assignment succeeds.</p></div><button id="simulateJourney">Preview journey <span>→</span></button></div>
+      </section>
+
+      <section id="admin" class="view admin-view" aria-label="Admin panel">
+        <aside class="admin-sidebar"><a class="brand"><span class="brand-mark">W</span><span>Worker<span>Connect</span></span></a><p class="console-label">OPERATIONS CONSOLE</p><nav><button class="side-selected">▦ Overview</button><button>▣ Jobs <span>12</span></button><button>♟ Workers</button><button>♙ Customers</button><button>₹ Payments</button><button>⚑ Risk & disputes <span class="alert-count">3</span></button></nav><div class="sidebar-foot"><button>⚙ Settings</button><div class="admin-user"><span class="admin-avatar">AK</span><div><b>Aarav Khanna</b><small>Operations manager</small></div><span>⌄</span></div></div></aside>
+        <div class="admin-main"><header class="admin-header"><div><p class="eyebrow">Tuesday, 20 August</p><h2>Good morning, Aarav</h2></div><div><button class="header-button">⌕ &nbsp; Search</button><button class="header-button">♧</button><button class="export-button">↓ Export report</button></div></header>
+          <section class="metric-grid"><article><span class="metric-icon mint">♟</span><p>Active jobs</p><h3>128</h3><small class="up">↑ 12.5% <em>vs last week</em></small></article><article><span class="metric-icon purple">◉</span><p>Workers online</p><h3>346</h3><small class="up">↑ 8.2% <em>vs last week</em></small></article><article><span class="metric-icon yellow">₹</span><p>Transaction volume</p><h3>₹84,250</h3><small class="up">↑ 15.3% <em>vs last week</em></small></article><article><span class="metric-icon red">⚑</span><p>Needs attention</p><h3>08</h3><small class="down">↑ 2 new <em>since yesterday</em></small></article></section>
+          <section class="dashboard-grid"><article class="panel activity-panel"><header><div><h3>Live job activity</h3><p>Real-time marketplace activity</p></div><button>View all →</button></header><div class="chart"><div class="chart-labels"><span>140</span><span>105</span><span>70</span><span>35</span><span>0</span></div><div class="chart-area"><div class="bars"><i style="height:29%"></i><i style="height:45%"></i><i style="height:38%"></i><i style="height:65%"></i><i style="height:54%"></i><i style="height:83%"></i><i style="height:71%"></i><i style="height:92%"></i><i style="height:62%"></i><i style="height:78%"></i><i style="height:57%"></i><i style="height:88%"></i></div><div class="chart-days"><span>9 AM</span><span>11 AM</span><span>1 PM</span><span>3 PM</span><span>5 PM</span><span>7 PM</span></div></div></div><footer><span><i class="legend active"></i>Jobs created <b>482</b></span><span><i class="legend completed"></i>Completed <b>361</b></span></footer></article>
+            <article class="panel attention-panel"><header><div><h3>Needs attention</h3><p>Items requiring a review</p></div><button>View queue →</button></header><div class="attention-item"><span class="attention-icon orange">!</span><div><b>3 verification reviews</b><p>Identity documents awaiting review</p></div><button>Review</button></div><div class="attention-item"><span class="attention-icon red">⚑</span><div><b>2 open disputes</b><p>Oldest opened 48 minutes ago</p></div><button>Review</button></div><div class="attention-item"><span class="attention-icon purple">⌖</span><div><b>3 risk signals</b><p>Location and cancellation patterns</p></div><button>Review</button></div></article></section>
+          <section class="panel jobs-table"><header><div><h3>Recent jobs</h3><p>Latest activity across Bengaluru</p></div><button>View all jobs →</button></header><table><thead><tr><th>JOB</th><th>CUSTOMER</th><th>WORKER</th><th>STATUS</th><th>AMOUNT</th><th></th></tr></thead><tbody><tr><td><b>#WC-10482</b><small>Furniture moving</small></td><td>Ananya Sharma</td><td><span class="table-person">RK</span> Ravi Kumar</td><td><span class="status onway">● On the way</span></td><td><b>₹1,440</b></td><td>•••</td></tr><tr><td><b>#WC-10481</b><small>House cleaning</small></td><td>Priya Menon</td><td><span class="table-person pn">SM</span> Sunita M.</td><td><span class="status working">● Working</span></td><td><b>₹780</b></td><td>•••</td></tr><tr><td><b>#WC-10480</b><small>Electrical repair</small></td><td>Arjun Nair</td><td><span class="table-person an">VK</span> Vikas K.</td><td><span class="status complete">● Completed</span></td><td><b>₹1,050</b></td><td>•••</td></tr></tbody></table></section>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop" id="jobModal" aria-hidden="true"><section class="job-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="close-modal" id="closeModal" aria-label="Close">×</button><div class="modal-kicker">NEW WORK REQUEST</div><h2 id="modalTitle">Tell us about the job</h2><p class="modal-subtitle">We’ll calculate a transparent starting offer before matching nearby verified workers.</p><div class="form-row"><label>Service<select id="serviceSelect"><option value="Moving help">Furniture moving</option><option value="House cleaning">House cleaning</option><option value="Plumbing">Plumbing</option><option value="Electrical repair">Electrical repair</option></select></label><label>Workers<input id="workersInput" type="number" min="1" max="10" value="2" /></label></div><label>Expected duration<select id="durationSelect"><option value="2">About 2 hours</option><option value="3">About 3 hours</option><option value="4">About 4 hours</option></select></label><label>Work notes<textarea id="notesInput" placeholder="e.g. Sofa, boxes and a small table"></textarea></label><div class="price-summary"><div><span>Suggested offer</span><b id="suggestedPrice">₹1,200</b><small>Includes platform protection</small></div><button id="recalculate">Update price</button></div><button class="find-button" id="findLabour">Find labour near me <span>→</span></button><p class="secure-caption">⌾ Test-mode request · Your location and contact details are protected until assignment.</p></section></div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
